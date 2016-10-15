@@ -20,10 +20,12 @@ def main():
     json_data = json.load(args.infile) 
     total = len(json_data)
 
-    for (i,profile) in enumerate(json_data):
+    line_template = '%%%dd/%d\r' % (len(str(total)), total)
+
+    for i, profile in enumerate(json_data):
         p = Profile(**profile)
         p.save()
-        print("{}/{}\r".format(i,total), end='')
+        print(line_template % i, end='')
     
     print("Done! :)")
 

@@ -13,7 +13,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'xorgsearch-dump = xorgsearch.dump [dump]',
+            'xorgsearch-dump = xorgsearch.dump.main [dump]',
+            'xorgsearch-inject = xorgsearch.load_json.main',
         ],
     },
     license='GPL',
