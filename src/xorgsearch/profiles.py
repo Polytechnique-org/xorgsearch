@@ -1,4 +1,4 @@
-from elasticsearch_dsl import DocType, String, Integer, FacetedSearch, TermsFacet
+from elasticsearch_dsl import DocType, String, Integer, FacetedSearch, TermsFacet, Q
 
 class Profile(DocType):
     pid = Integer()
@@ -21,3 +21,14 @@ class ProfileSearch(FacetedSearch):
         'section': TermsFacet(field='section'),
         'sex': TermsFacet(field='sex')
     }
+
+    def query(self, search, query):
+        for term in query.split():
+            q = None
+            for field in self.fields:
+                if q is None:
+                    q = Q({"fuzzy": { field: term }})
+                else:
+                    q = q | Q({"fuzzy": { field: term}})
+            search = search.query(q)
+        return search
