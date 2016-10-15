@@ -4,6 +4,7 @@ setup(
     name="xorgsearch",
     install_requires=[
         'mysqlclient',
+        'elasticsearch-dsl'
     ],
     setup_requires=[
         'setuptools',
