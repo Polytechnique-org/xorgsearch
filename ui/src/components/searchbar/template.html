@@ -1,0 +1,7 @@
+<div>
+  <form v-on:submit.prevent="onSubmit">
+    <input v-model="userQuery" placeholder="vaneau promo:1829">
+    <spinner v-bind:spinning="loading"></spinner>
+  </form>
+  <span>{{ parsedQuery }}</span>
+</div>
