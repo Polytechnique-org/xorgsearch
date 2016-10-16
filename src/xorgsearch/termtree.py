@@ -1,29 +1,4 @@
-from elasticsearch_dsl import DocType, String, Integer, FacetedSearch, TermsFacet, Q
-
-class Profile(DocType):
-    pid = Integer()
-    hrpid = String()
-    sex = String()
-    resume = String()
-    freetext = String()
-    section = String()
-    fullname = String()
-    promo = String()
-
-    class Meta:
-        index = "profiles"
-
-class ProfileSearch(FacetedSearch):
-    doc_types = [Profile,]
-    fields = ['fullname', 'promo', 'section']
-    facets = {
-        'promo': TermsFacet(field='promo'),
-        'section': TermsFacet(field='section'),
-        'sex': TermsFacet(field='sex')
-    }
-
-    def query(self, search, termtree):
-        return search.query(termtree.as_query(self.fields))
+from elasticsearch_dsl import Q
 
 class InvalidMatchKind(Exception):
     def __init__(self, kind):
@@ -48,8 +23,8 @@ class TermTree:
         else:
             self.terms[filter].append(term)
 
-    def search(self):
-        return ProfileSearch(self)
+    def search(self, cls):
+        return cls(self)
 
     def as_query(self, known_fields=[]):
         q = None

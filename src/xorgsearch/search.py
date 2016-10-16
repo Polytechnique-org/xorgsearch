@@ -5,7 +5,8 @@ import argparse
 from elasticsearch_dsl import Q
 from elasticsearch_dsl.connections import connections
 
-from profile_search import TermTree, Term
+from termtree import TermTree, Term
+from profile_desc import CommunityProfileSearch
 
 def main():
     parser = argparse.ArgumentParser()
@@ -25,7 +26,7 @@ def main():
         else:
             tt.add_term(Term(s))
 
-    qs = tt.search()
+    qs = tt.search(CommunityProfileSearch)
 
     res = qs.execute()
 
