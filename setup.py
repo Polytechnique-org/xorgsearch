@@ -3,7 +3,8 @@ from setuptools import find_packages, setup
 setup(
     name="xorgsearch",
     install_requires=[
-        'elasticsearch-dsl'
+        'elasticsearch-dsl',
+        'python_jwt'
     ],
     setup_requires=[
         'setuptools',
