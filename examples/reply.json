@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "duration": 0.1234,
+    "hits": 234
+  },
+  "facets": {
+    "promo": {
+      "X2006": 4,
+      "X2007": 3
+    },
+    "section": {
+      "Handball": 10,
+      "Rugby": 4
+    }
+  },
+  "results": [
+    {
+      "id": "69609792-0087-4680-96e5-1da2345e24ca",
+      "score": 0.2344,
+      "data": {
+        "hruid": "louis.vaneau.1829",
+        "promo": "X1829",
+        "fullname": "Louis Vaneau",
+        "address": "3 boulevard Edgar Quinet, 75014 Paris"
+      }
+    }
+  ]
+}
