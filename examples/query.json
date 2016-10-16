@@ -1,0 +1,16 @@
+{
+  "search": {
+    "promo": [
+      {"v": "X2006", "match": "exact"},
+      {"v": "X2007", "match": "exact"},
+      {"v": "M2008", "match": "exact"}
+    ],
+    "name": [
+      {"v": "Barrrois", "match": "exact", "required": true},
+      {"v": "raphael", "match": "fuzzy", "required": true}
+    ],
+    "raw": [
+      {"v": "ponyconseil", "match": "fuzzy"}
+    ]
+  }
+}
