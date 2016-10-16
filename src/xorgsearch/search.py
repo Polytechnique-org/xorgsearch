@@ -16,7 +16,16 @@ def main():
 
     connections.create_connection(hosts=[args.es_instance])
 
-    qs = ProfileSearch(args.search_str)
+    tt = TermTree()
+
+    for s in args.search_str.split():
+        if ':' in s:
+            [prefix, value] = s.split(':', 2)
+            tt.add_term(Term(value), filter=prefix)
+        else:
+            tt.add_term(Term(s))
+
+    qs = tt.search()
 
     res = qs.execute()
 
