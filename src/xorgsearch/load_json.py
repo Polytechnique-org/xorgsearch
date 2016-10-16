@@ -4,7 +4,7 @@ import argparse
 import json
 import sys
 
-from profile import Profile
+from profile_search import Profile
 
 from elasticsearch_dsl.connections import connections
 

@@ -5,7 +5,7 @@ import argparse
 from elasticsearch_dsl import Q
 from elasticsearch_dsl.connections import connections
 
-from profiles import ProfileSearch
+from profile_search import TermTree, Term
 
 def main():
     parser = argparse.ArgumentParser()
